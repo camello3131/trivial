@@ -176,6 +176,21 @@
             font-weight: bold;
             color: #FFFFFF;
             cursor: auto;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 1000px){
+            .encabezado{
+                width: 90%;
+                height: fit-content;
+            }
+            .pregunta{
+                font-size: 1.5rem;
+            }
+            .opcion{
+                width: 90%;
+                font-size: 1.3rem;
+            }
         }
         </style>
         <div class="tablero">
@@ -198,10 +213,10 @@
                     <div class="numero" id="numero"></div>
                     <div class="pregunta" id="pregunta"></div>
             <div class=" btns">
-                <div class="btn pregunta1" id="btn1" onclick="oprimir_btn(0)"></div>
-                <div class="btn pregunta2" id="btn2" onclick="oprimir_btn(1)"></div>
-                <div class="btn pregunta3" id="btn3" onclick="oprimir_btn(2)"></div>
-                <div class="btn pregunta3" id="btn4" onclick="oprimir_btn(3)"></div>
+                <div class="btn pregunta1 opcion" id="btn1" onclick="oprimir_btn(0)"></div>
+                <div class="btn pregunta2 opcion" id="btn2" onclick="oprimir_btn(1)"></div>
+                <div class="btn pregunta3 opcion" id="btn3" onclick="oprimir_btn(2)"></div>
+                <div class="btn pregunta3 opcion" id="btn4" onclick="oprimir_btn(3)"></div>
             </div>
         </div>
         <button onclick="scores()" class="btn-estadisticas btn">Estadisticas</button>

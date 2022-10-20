@@ -187,9 +187,25 @@
             .pregunta{
                 font-size: 1.5rem;
             }
+            .btns{
+                height: max-content;
+            }
             .opcion{
                 width: 90%;
                 font-size: 1.3rem;
+            }
+            .tablero{
+                top: 25px;
+                
+            }
+            .btn-estadisticas{
+                margin-top: 30px;
+            }
+            footer{
+                margin-top: 20px;
+            }
+            #imagenBackground{
+                margin-top: 10px;
             }
         }
         </style>
@@ -202,7 +218,7 @@
 
         <div class="contenedor">
             <div class="puntajeAnterior bg-dark btn">
-                <ul class="container">
+                <ul class="container opcion">
                     Scores
                 </ul>
             </div>
@@ -219,7 +235,7 @@
                 <div class="btn pregunta3 opcion" id="btn4" onclick="oprimir_btn(3)"></div>
             </div>
         </div>
-        <button onclick="scores()" class="btn-estadisticas btn">Estadisticas</button>
+        <button onclick="scores()" class="btn-estadisticas btn opcion">Estadisticas</button>
 
         <footer>
          <p>

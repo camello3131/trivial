@@ -1,3 +1,4 @@
+
 let preguntas_aleatorias = true;
 let mostrar_pantalla_juego_términado = true;
 let reiniciar_puntos_al_reiniciar_el_juego = true;
@@ -41,6 +42,7 @@ function escogerPreguntaAleatoria() {
         const $div = document.querySelector(".puntajeAnterior")
         const $ultimoPuntajeContenedor = document.createElement("div")
         const $ultimoPuntaje = document.createElement("li")
+        $ultimoPuntaje.classList.add("resultados")
         
         $ultimoPuntaje.textContent = resultadoAnterior
         
@@ -186,4 +188,71 @@ function readText(ruta_local) {
   return texto;
 }
 
+/*------------------------ FINAL MAYOR RESULTADO ----------------------------- */
 
+const d = document
+
+d.addEventListener("DOMContentLoaded", (e)=>{
+  scoreMenu(".btn-estadisticas", ".tablero");
+  closeMenu(".closeMenu", ".tablero")
+})
+
+function scoreMenu(btn, tablero){
+  const d = document;
+  d.addEventListener("click", (e)=>{
+      if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+          document.querySelector(tablero).classList.toggle("is-active")
+      }
+  })
+}
+
+function closeMenu(btn, tablero) {
+  d.addEventListener("click", (e) => {
+    if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+      document.querySelector(tablero).classList.toggle("is-active")
+    }
+  })
+}
+const maximo = 0;
+
+function scores() {
+  const resArray = [];
+  const $resultados = document.querySelectorAll(".resultados")
+  
+  $resultados.forEach(r =>{
+    resArray.push(Number(r.innerHTML))
+  })
+  
+  const resultadoMaximo = Math.max.apply(null, resArray);
+  const resultadoPromedio = promedio()
+  
+  function promedio(){
+    let suma= 0
+    for(let i = 0; i < resArray.length; i++) {
+      suma += resArray[i];
+    }
+    return (suma/resArray.length)
+  }
+  console.log(resultadoPromedio)
+  const $estadisticas = d.getElementById("container-estadisticas")
+  const $maxResult = d.createElement("h5")
+  const $promedio = d.createElement("h5")
+
+  $maxResult.classList.add("btn")
+  $promedio.classList.add("btn")
+
+  if(resultadoMaximo < 2.5) {
+    $maxResult.textContent = "Tu puntaje máximo es : " + resultadoMaximo + " 👎"
+  } else {
+    $maxResult.textContent = "Tu puntaje máximo es : " + resultadoMaximo + "👍"
+  }
+
+  if(resultadoPromedio < 2.5) {
+    $promedio.textContent = "Tu puntaje promedio es : " + resultadoPromedio + " 👎"
+  } else {
+    $promedio.textContent = "Tu puntaje promedio es : " + resultadoPromedio + "👍"
+  }
+  
+  $estadisticas.appendChild($maxResult)
+  $estadisticas.appendChild($promedio)
+}

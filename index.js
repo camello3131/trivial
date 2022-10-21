@@ -22,7 +22,6 @@ let npreguntas = [];
 let preguntas_hechas = 0;
 let preguntas_correctas = 0;
 function escogerPreguntaAleatoria() {
-    
     let resultadoAnterior = preguntas_correctas
     if(npreguntas.length >= 5){
         if (mostrar_pantalla_juego_términado) {
@@ -38,7 +37,7 @@ function escogerPreguntaAleatoria() {
             preguntas_hechas = 0
         }
         npreguntas = [];
-        
+        const $panel = d.querySelector(".scores-panel")
         const $div = document.querySelector(".puntajeAnterior")
         const $ultimoPuntajeContenedor = document.createElement("div")
         const $ultimoPuntaje = document.createElement("li")
@@ -48,6 +47,7 @@ function escogerPreguntaAleatoria() {
         
         $ultimoPuntajeContenedor.appendChild($ultimoPuntaje)
         $div.appendChild($ultimoPuntajeContenedor)
+        $panel.appendChild($ultimoPuntaje)
     }
     
     let n;
@@ -87,6 +87,7 @@ function escogerPreguntaAleatoria() {
 }
 
 function escogerPregunta(n) {
+  const $preguntas = d.querySelector(".puntaje")
   pregunta = interprete_bp[n];
   select_id("categoria").innerHTML = pregunta.categoria;
   select_id("pregunta").innerHTML = pregunta.pregunta;
@@ -96,9 +97,11 @@ function escogerPregunta(n) {
   let pc = preguntas_correctas;
   if (preguntas_hechas > 1) {
     select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas - 1);
+    $preguntas.classList.add("is-active")
   } else {
     select_id("puntaje").innerHTML = "";
   }
+
 
   desordenarRespuestas(pregunta);
 
@@ -187,10 +190,23 @@ function readText(ruta_local) {
   }
   return texto;
 }
+/*--------------------------SCORES BTN----------------------------*/
+const d = document
+
+d.addEventListener("DOMContentLoaded", (e)=>{
+  scoreBtn(".scores-btn", ".scores-panel")
+})
+
+function scoreBtn(btn, resultados){
+  d.addEventListener("click", e => {
+    if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+      document.querySelector(resultados).classList.toggle("is-active")
+    }
+  })
+}
 
 /*------------------------ FINAL MAYOR RESULTADO ----------------------------- */
 
-const d = document
 
 d.addEventListener("DOMContentLoaded", (e)=>{
   scoreMenu(".btn-estadisticas", ".tablero");

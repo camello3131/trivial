@@ -1,51 +1,279 @@
+
+
 *{
-    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+	background-image: linear-gradient(to right top, #1a1a5e, #232373, #2c2b89, #3535a0, #3e3eb7);
+    height: 100vh;
 }
 
-body{
-    background-color: tomato;
+.numero {
+    max-height: 4.5vh;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+.scores-btn {
+    margin-top: 3px;
+    margin-left: 3px;
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:linear-gradient(to bottom, #414855 5%, #36373a 100%);
+	background-color:#2e466e;
+	border-radius:17px;
+	border:1px solid #79721b;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:5px 19px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+    text-shadow:-2px 3px 10px #333333;
+    -webkit-box-shadow:0px 1px 10px 4px #303030 ;
+    -moz-box-shadow:0px 1px 10px 4px #303030 ;
+    box-shadow:0px 1px 10px 4px #303030 ;
+}
+.scores-btn:hover {
+	background:linear-gradient(to bottom, #36373a 5%, #414855 100%);
+	background-color:#415989;
+}
+.scores-btn:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
+        
+.contenedor{
+    position: fixed;
+    top: 5px;
+    left: 5%;
+    border: solid 1px #fff;
+    border-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(to right, rgb(76, 131, 235), rgb(199, 103, 247)) 1;
+    min-height: 90vh;
+    height: fit-content;
+    width: 90%;
+}
+.contenedorSuperior{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    margin-bottom: 15px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top:5px ;
+    margin-bottom: 5px;
+}
+
+.puntajeAnterior ul{
     padding: 0;
-    margin: 0;
+    margin: auto auto;
     text-align: center;
 }
-
-.container {
-    width: 98vw;
-    height: 97vh;
-    display: inline-flex;
+.scores-panel{
+    width: 22%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translate(0, -500%);
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
+    position: fixed;
+    left: 20%;
+    background-color: #eee;
+    z-index: 99999;
+    border-radius: 5px;
+}
+.scores-panel li{
+    color: rgb(61, 16, 16);
+    list-style: none;
+}
+.scores-panel.is-active{
+    transform: translate(0,0);
+    opacity: 1;
+}
+.cateContainer{
+    display: flex;
+    justify-content: center;
+}
+.categoria{
+    margin-bottom: 1px;
+    min-width: 1.3vw;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-family: Trebuchet MS;
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+    padding: 14px 40px;
+    border: 2px solid #af48c3;
+    border-radius: 10px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: solid white 1px ;
+    text-shadow: -1px 2px 1px #333232;
 }
-
-.encabezado{
-    background-color: beige;
-    min-width: 300px;
-    width: 70%;
+.containerPregunta{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 30vh;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top:10px solid #90a5e4;
+    border-right:10px solid #5d70bb;
+    border-bottom:10px solid #90a5f8;
+    border-left:10px solid #5d70bb;
+    border-radius: 15px;
 }
-
-.categoria{
-    opacity: 0.3;
-    text-align: left;
-}
-
 .pregunta{
-    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
-.imagen{
-    object-fit: cover;
-    height: 200px;
-    width: 100%;
+.puntajeContainer{
+    display: flex;
+    justify-content: center;
 }
-.btn{
-    background-color: whitesmoke;
-    width: 60%;
-    padding: 10px;
-    margin: 5px;
+.puntaje{
+    margin: 0 auto;
+    margin-top: -12px;
+    width: 20%;
+    color: #fff;
+    text-align: center;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#4a84c7 ,#6185dd);
+    background-color: #4a84c7;
+    color: #fff;
+    font-family: Trebuchet MS;
+    font-size: 18px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+    padding: 12px 17px;
+    border: 2px solid #83a4e5;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 9px 6px 9px -2px rgba(255,247.7284321937105,247.7284321937105,0.5);
+    text-shadow: 0px 1px 3px #000;
+    display: none;
+}
+.puntaje.is-active{
+    display: flex;
+}
+.puntaje:hover{
+    background: linear-gradient(to right,#6b95cd ,#7a96e1);
+ background-color: #6b95cd;
+}
+.btns{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
+}
+.btns div{
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    width: 40%;
+    cursor: pointer;
+}
+.btns div:hover{
+    width: 42%;
+}
+.btnEstadisticasContainer{
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
+    max-height: fit-content;
+}
+.btn-estadisticas{
+    color: #fff;
+}
+.btn-estadisticas:hover{
+color: #fff;
 }
 
-.btn:hover{
-    background-color: orange;
-    cursor: pointer;
+.tablero{
+    width: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translate(0, -500%);
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    border-bottom: #1a1a5e solid 5px;
+    border-left: #1a1a5e solid 5px;
+    border-right: #1a1a5e solid 5px;
+    justify-content: center;
+    align-items: center;
+}
+.tablero.is-active{
+    position: fixed;
+    top: 0;
+    transform: translate(0,0);
+    opacity: 1;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+}
+footer .container p{
+    display: block;
+    margin-top: 50px;
+    color: #eee;
+    font-size: .7em;
+}
+@media screen and (max-width: 1030px){
+    .btns{
+        margin-top: 0;
+    }
+}
+@media screen and (max-width: 950px) {
+    .btns{
+        display: block !important;
+        margin-top: 5px;
+    }
+    .btns div{
+        margin: 10px auto;
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 393px) {
+    .btns{
+        margin-top: 0;
+    }
+    .btns div{
+        height: max-content;
+    }
+    .contenedorSuperior{
+        height: fit-content;
+    }
+}
+@media screen and (min-width: 1030px){
+    .contenedor{
+        width: 70%;
+        left: 15%;
+    }
 }

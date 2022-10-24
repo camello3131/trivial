@@ -99,6 +99,7 @@ function escogerPregunta(n) {
     select_id("puntaje").innerHTML = pc + "/" + (preguntas_hechas - 1);
     $preguntas.classList.add("is-active")
   } else {
+    $preguntas.classList.remove("is-active")
     select_id("puntaje").innerHTML = "";
   }
 
@@ -121,10 +122,10 @@ function desordenarRespuestas(pregunta) {
   select_id("btn3").innerHTML = posibles_respuestas[2];
   select_id("btn4").innerHTML = posibles_respuestas[3];
 
-  style("btn1").background= "rgba(8, 8, 8, 0.801)"
-  style("btn2").background= "rgba(8, 8, 8, 0.801)"
-  style("btn3").background= "rgba(8, 8, 8, 0.801)"
-  style("btn4").background= "rgba(8, 8, 8, 0.801)"
+  style("btn1").background= "#1C1F23"
+  style("btn2").background= "#1C1F23"
+  style("btn3").background= "#1C1F23"
+  style("btn4").background= "#1C1F23"
 
   style("btn1").color= "#FFFFFF"
   style("btn2").color= "#FFFFFF"
@@ -142,16 +143,16 @@ function oprimir_btn(i) {
   suspender_botones = true;
   if (posibles_respuestas[i] == pregunta.respuesta) {
     preguntas_correctas++;
-    btn_correspondiente[i].style.background = "lightgreen";
-    btn_correspondiente[i].style.color = "rgb(5, 24, 5)";
+    btn_correspondiente[i].style.background = "rgb(46, 185, 190)";
+    btn_correspondiente[i].style.color = "#fff";
   } else {
-    btn_correspondiente[i].style.background = "pink";
-    btn_correspondiente[i].style.color = "rgb(51, 8, 8)";
+    btn_correspondiente[i].style.background = "var(--colorTr)";
+    btn_correspondiente[i].style.color = "#fff";
   }
   for (let j = 0; j < 4; j++) {
     if (posibles_respuestas[j] == pregunta.respuesta) {
-      btn_correspondiente[j].style.background = "lightgreen";
-      btn_correspondiente[j].style.color = "rgb(5, 24, 5)";
+      btn_correspondiente[j].style.background = "rgb(46, 185, 190)";
+      btn_correspondiente[j].style.color = "#fff";
       break;
     }
   }
@@ -197,9 +198,9 @@ d.addEventListener("DOMContentLoaded", (e)=>{
   scoreBtn(".scores-btn", ".scores-panel")
 })
 
-function scoreBtn(btn, resultados){
+function scoreBtn(btnScores, resultados){
   d.addEventListener("click", e => {
-    if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+    if(e.target.matches(btnScores) || e.target.matches(`${btnScores} *`)){
       document.querySelector(resultados).classList.toggle("is-active")
     }
   })

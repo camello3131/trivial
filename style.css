@@ -1,3 +1,11 @@
+:root{
+    --colorOne: #3B68F5;
+    --colorTwo: #E0CF5B;
+    --colorTr: rgba(133, 24, 102);
+    --colorFor: #E0835E;
+    --colorFive: #8DFA8C;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,14 +15,18 @@ html{
     height: 100%;
 }
 body {
-	background-image: linear-gradient(to right top, #1a1a5e, #232373, #2c2b89, #3535a0, #3e3eb7);
+	background-image: url(https://www.pogo.com/static/media/src/assets/games/pie_h5/spotlightGame__2u9RC.jpg);
     height: 100vh;
+    overflow: scroll;
+    background-size: cover;
+    background-position: left;
 }
 
 .numero {
     max-height: 4.5vh;
     margin-top: 3px;
     margin-right: 3px;
+    color: #eee;
 }
 
 .scores-btn {
@@ -24,7 +36,7 @@ body {
 	background:linear-gradient(to bottom, #414855 5%, #36373a 100%);
 	background-color:#2e466e;
 	border-radius:17px;
-	border:1px solid #79721b;
+	border: var(--colorTwo) 1px solid;
 	display:inline-block;
 	color:#ffffff;
 	font-family:Arial;
@@ -53,10 +65,14 @@ body {
     border: solid 1px #fff;
     border-width: 4px;
     border-style: solid;
-    border-image: linear-gradient(to right, rgb(76, 131, 235), rgb(199, 103, 247)) 1;
+    border-image: linear-gradient(to right, var(--colorOne), var(--colorTr)) 1;
     min-height: 90vh;
-    height: fit-content;
+    max-height: fit-content;
     width: 90%;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    background-color: #1a1a5e8f;
 }
 .contenedorSuperior{
     display: flex;
@@ -66,7 +82,7 @@ body {
     width: 90%;
     margin: 0 auto;
     margin-top:5px ;
-    margin-bottom: 5px;
+    margin-bottom: 55px;
 }
 
 .puntajeAnterior ul{
@@ -75,7 +91,7 @@ body {
     text-align: center;
 }
 .scores-panel{
-    width: 22%;
+    width: fit-content;
     transition: transform 0.5s ease, opacity 0.5s ease;
     transform: translate(0, -500%);
     overflow-y: auto;
@@ -89,8 +105,11 @@ body {
     border-radius: 5px;
 }
 .scores-panel li{
-    color: rgb(61, 16, 16);
+    padding: 2px 5px;
+    color: #eee;
     list-style: none;
+    background-color: var(--colorOne);
+    border-radius: 1px;
 }
 .scores-panel.is-active{
     transform: translate(0,0);
@@ -101,7 +120,7 @@ body {
     justify-content: center;
 }
 .categoria{
-    margin-bottom: 1px;
+    margin-bottom: 8px;
     min-width: 1.3vw;
     width: fit-content;
     display: flex;
@@ -113,12 +132,15 @@ body {
     font-style: normal;
     text-decoration: none;
     padding: 14px 40px;
-    border: 2px solid #af48c3;
     border-radius: 10px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     text-shadow: -1px 2px 1px #333232;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    background-color: var(--colorTr);
 }
 .containerPregunta{
     text-align: center;
@@ -134,11 +156,15 @@ body {
     border-bottom:10px solid #90a5f8;
     border-left:10px solid #5d70bb;
     border-radius: 15px;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    background-color: var(--colorOne);
+
 }
 .pregunta{
     color: #fff;
-    font-weight: bold;
-    font-size: .8rem;
+    font-size: .9rem;
 }
 .puntajeContainer{
     display: flex;
@@ -154,8 +180,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right,#4a84c7 ,#6185dd);
-    background-color: #4a84c7;
+    background: linear-gradient(to right,#4a84c7 ,var(--colorOne));
+    background-color: var(--colorOne);
     color: #fff;
     font-family: Trebuchet MS;
     font-size: 18px;
@@ -177,7 +203,7 @@ body {
 }
 .puntaje:hover{
     background: linear-gradient(to right,#6b95cd ,#7a96e1);
- background-color: #6b95cd;
+    background-color: #6b95cd;
 }
 .btns{
     margin-top: 50px;
@@ -193,9 +219,9 @@ body {
     text-align: center;
     width: 40%;
     cursor: pointer;
-}
-.btns div:hover{
-    width: 42%;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
 }
 .btnEstadisticasContainer{
     display: flex;
@@ -205,8 +231,10 @@ body {
     max-height: fit-content;
 }
 .btn-estadisticas{
-    margin-bottom: 10px;
     color: #fff;
+    box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 9px 0px rgba(0,0,0,0.75);
 }
 .btn-estadisticas:hover{
 color: #fff;
@@ -245,6 +273,9 @@ color: #fff;
     .btns{
         margin-top: 0;
     }
+    body{
+        background-position: center;
+    }
 }
 @media screen and (max-width: 950px) {
     .btns{
@@ -266,6 +297,21 @@ color: #fff;
     }
     .contenedorSuperior{
         height: fit-content;
+    }
+    .btn-estadisticas{
+        margin-bottom: 1px;
+    }
+    body{
+        background-position: right;
+    }
+    .foo{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-position: right;
     }
 }
 @media screen and (min-width: 1030px){

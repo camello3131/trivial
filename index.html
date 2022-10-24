@@ -10,22 +10,158 @@
 </head>
 <body>
     <style>
+        body{
+            background-image: url(/img/img.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
         .all {
-            border: 1px solid red;
-            height: 100vh;
+            left: 5%;
+            min-height: 90vh;
+            max-height: fit-content;
+            width: 100%;
+            border: solid 1px #fff;
+            border-width: 4px;
+            border-style: solid;
+            border-image: linear-gradient(to right, #3B68F5, rgba(133, 24, 102)) 1;
+            box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+            background-color: #1a1a5e8f;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            flex-direction: column;
         }
         .all a{
-            width: 100%;
             text-align: center;
         }
+        .all input {
+            margin: 2px;
+            display: block;
+            box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+        }
+        .containerTitulo{
+            margin-bottom: 150px;
+            text-align: center;
+        }
+        .containerTitulo h1{
+            color: #fff;
+            font-weight: bold;
+            font-size: 5rem;
+            text-shadow: 2px 6px 2px rgba(0,0,0,0.36);
+        }
+        .containerInpuntBtn {
+            text-align: center;
+        }
+        .boton{
+            margin-top: 15px;
+            box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.75);
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }   
+
+        .inputNombre{
+            margin-bottom: 30px !important;
+        }
+        .botonSubmit{
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .containerInputs{
+            height: 15vh;
+        }
+
+        .nombreForm{
+            --form-ok-color: #8DFA8C;
+            --form-error-color: rgba(133, 24, 102);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nombreForm > *{
+            padding: 0.5rem;
+            margin: 1rem auto;
+            display: block;
+            width: 100%;
+        }
+
+        .form-response{
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+
+        .nombreForm [required]:valid{
+            border: 3px solid var(--form-ok-color);
+            z-index: 999;
+        }
+        .nombreForm [required]:invalid{
+            border: 3px solid var(--form-error-color);
+        }
+        .nombreForm-error{
+            margin-top: -1rem;
+            font-size: 80%;
+            background-color: var(--form-error-color);
+            color: #fff;
+            transition: all 800ms ease;
+        }
+        .nombreForm-error.is-active{
+            display: block;
+            animation: show-message 1s 1 normal 0s ease-in-out both;
+        }
+
+        @keyframes show-message {
+            0%{
+                visibility: hidden;
+                opacity: 0;
+            }
+            100%{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+
+        .none{
+            display: none;
+        }
+
+
     </style>
     <div class="container all">
-        <a href="juego.html" class="btn btn-dark ">Jugar</a>
+        <div class="containerTitulo">
+            <h1>Trivia Time</h1>
+        </div>
+        <div class="containerInpuntBtn">
+            <form action="" class="nombreForm">
+            <div class="containerInputs container">
+                <input class="inputNombre" type="text" name="nombre" id="inputNombre" placeholder="Ingresa tu nombre" title="El nombre solo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                <div class="containerError">
+                </div>
+                <input type="submit" value="Listo" class="botonSubmit btn btn-dark">
+            </div>
+                <div class="formLoader none">
+                    <img src="/svg-loaders/puff.svg" alt="Cargando">
+                </div>
+                <div class="form-response none">
+                    <p>Todo listo!</p>
+                    <a href="/juego.html" class="btn btn-warning">JUGAR</a>
+                </div>
+            </form>
+        </div>
     </div>
+    <script src="/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

@@ -59,6 +59,7 @@ body {
 }
 
 .contenedor{
+    margin-top: 15px;
     position: fixed;
     top: 5px;
     left: 5%;
@@ -240,20 +241,23 @@ body {
 color: #fff;
 }
 
+/*---------------------TABLERO ESTADISTICAS----------------------------*/
+/*---------------------TABLERO ESTADISTICAS----------------------------*/
+/*---------------------TABLERO ESTADISTICAS----------------------------*/
+
 .tablero{
-    width: 100%;
     transition: transform 0.5s ease, opacity 0.5s ease;
     transform: translate(0, -500%);
     overflow-y: auto;
-    background-color: #fff;
+    background-image: url(https://image.api.playstation.com/vulcan/ap/rnd/202203/1607/RHzwa3lxl277LKZOFe7k7WOY.jpg);
+    background-size: cover;
+    background-position: right;
+    height: 94vh;
+    width: 100%;
     z-index: 999;
-    display: flex;
-    flex-direction: column;
-    border-bottom: #1a1a5e solid 5px;
-    border-left: #1a1a5e solid 5px;
-    border-right: #1a1a5e solid 5px;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
 }
 .tablero.is-active{
     position: fixed;
@@ -261,6 +265,46 @@ color: #fff;
     transform: translate(0,0);
     opacity: 1;
 }
+
+.tableroAll{
+    width: 80%;
+    background-color: #1a1a5e8f;
+    height: 80vh;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+}
+
+.tableroNav{
+
+    text-align: right;
+    width: 100%;
+}
+.tableroNav h3{
+    text-align: center;
+    color: #fff;
+}
+
+#container-estadisticas{
+    height: 60vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#container-estadisticas h5{
+    color: #fff;
+}
+.fooEstadisticas{
+
+}
+
+
+
 .container p{
     position: absolute;
     bottom: 0;
@@ -268,6 +312,12 @@ color: #fff;
     margin-top: 50px;
     color: #eee;
     font-size: .7em;
+}
+
+
+.foo p{
+    z-index: -5;
+    opacity: .5;
 }
 @media screen and (max-width: 1030px){
     .btns{
@@ -285,6 +335,9 @@ color: #fff;
     .btns div{
         margin: 10px auto;
         width: 90% !important;
+    }
+    .closeMenu{
+        margin-right: 20px;
     }
 }
 
@@ -306,6 +359,9 @@ color: #fff;
     }
     .foo{
         display: none;
+    }
+    .tablero{
+        height: 97vh;
     }
 }
 

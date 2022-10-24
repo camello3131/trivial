@@ -1,3 +1,72 @@
+/**---------------------------NOMBRE form--------------------------- */
+/**---------------------------NOMBRE form--------------------------- */
+/**---------------------------NOMBRE form--------------------------- */
+
+  function validarNombre() {
+    const $form = document.querySelector(".nombreForm")
+    const $containerSpan = document.querySelector(".containerError")
+    const $input = document.querySelectorAll(".inputNombre");
+
+    $input.forEach(input => {
+      const $span = document.createElement("span");
+      $span.id = input.name;
+      $span.textContent = input.title;
+      $span.classList.add("nombreForm-error", "none")
+
+      $containerSpan.appendChild($span)
+    })
+
+    document.addEventListener("keyup", e => {
+      if(e.target.matches(".nombreForm [required]")){
+        let $input = e.target;
+        let pattern = $input.pattern
+
+        if(pattern && $input.value !== "") {
+          let regex = new RegExp(pattern);
+          return !regex.exec($input.value)
+          ? document.getElementById($input.name).classList.add("is-active")
+          : document.getElementById($input.name).classList.remove("is-active")
+        }
+      }
+    })
+
+    document.addEventListener("submit", e => {
+      e.preventDefault()
+
+      const $loader = document.querySelector(".formLoader")
+      const $response = document.querySelector(".form-response")
+
+      $loader.classList.remove("none")
+
+      const $divInputs = document.querySelector(".containerInputs")
+      
+      
+      setTimeout(() => {
+        $loader.classList.add("none")
+        $response.classList.remove("none")
+        $divInputs.classList.add("none")
+        
+        function guardarLS() {
+          let nombre = document.getElementById("inputNombre").value
+
+          localStorage.setItem("nombre", nombre)
+        }
+        guardarLS()
+      }, 3000);
+    })
+
+    
+  }
+
+
+validarNombre()
+
+
+
+/*------------------------JUEGO------------------------ */
+/*------------------------JUEGO------------------------ */
+/*------------------------JUEGO------------------------ */
+
 
 let preguntas_aleatorias = true;
 let mostrar_pantalla_juego_términado = true;
@@ -195,7 +264,7 @@ function readText(ruta_local) {
 const d = document
 
 d.addEventListener("DOMContentLoaded", (e)=>{
-  scoreBtn(".scores-btn", ".scores-panel")
+  scoreBtn(".scoresButton", ".scores-panel")
 })
 
 function scoreBtn(btnScores, resultados){
@@ -218,15 +287,20 @@ function scoreMenu(btn, tablero){
   const d = document;
   d.addEventListener("click", (e)=>{
       if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+
           document.querySelector(tablero).classList.toggle("is-active")
       }
   })
 }
+let nombre = localStorage.getItem("nombre")
+let $tablero = document.querySelector(".tableroNav")
+let $titulo = document.createElement("h3")
 
 function closeMenu(btn, tablero) {
   d.addEventListener("click", (e) => {
     if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
       document.querySelector(tablero).classList.toggle("is-active")
+      $titulo.textContent = ""
     }
   })
 }
@@ -255,8 +329,7 @@ function scores() {
   const $maxResult = d.createElement("h5")
   const $promedio = d.createElement("h5")
 
-  $maxResult.classList.add("btn")
-  $promedio.classList.add("btn")
+
 
   if(resultadoMaximo < 2.5) {
     $maxResult.textContent = "Tu puntaje máximo es : " + resultadoMaximo + " 👎"
@@ -270,6 +343,24 @@ function scores() {
     $promedio.textContent = "Tu puntaje promedio es : " + resultadoPromedio + "👍"
   }
   
-  $estadisticas.appendChild($maxResult)
-  $estadisticas.appendChild($promedio)
+  function mostrarEstadisticas(btn) {
+    d.addEventListener("click", (e) => {
+
+      if(e.target.matches(btn) || e.target.matches(`${btn} *`)){
+        $estadisticas.innerHTML = ``;
+        $estadisticas.appendChild($maxResult)
+        $estadisticas.appendChild($promedio)
+
+        function obtenerNombre() {
+
+          $titulo.textContent = "Estadisticas de " + nombre
+
+          $tablero.appendChild($titulo)
+        }
+        obtenerNombre()
+      }
+    })
+  }
+  mostrarEstadisticas(".btn-estadisticas")
+
 }

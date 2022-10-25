@@ -329,19 +329,25 @@ function scores() {
   const $maxResult = d.createElement("h5")
   const $promedio = d.createElement("h5")
 
-
-
+if(resultadoMaximo && resultadoPromedio){
   if(resultadoMaximo < 2.5) {
     $maxResult.textContent = "Tu puntaje máximo es : " + resultadoMaximo + " 👎"
   } else {
     $maxResult.textContent = "Tu puntaje máximo es : " + resultadoMaximo + "👍"
   }
-
+  
   if(resultadoPromedio < 2.5) {
     $promedio.textContent = "Tu puntaje promedio es : " + resultadoPromedio + " 👎"
   } else {
     $promedio.textContent = "Tu puntaje promedio es : " + resultadoPromedio + "👍"
   }
+} else {
+  $maxResult.textContent = "Debes jugar para obtener tus primeros resultados."
+  $maxResult.style.margin = "0 auto"
+  $maxResult.style.fontSize = "3rem"
+  $promedio.classList.add("none")
+}
+
   
   function mostrarEstadisticas(btn) {
     d.addEventListener("click", (e) => {

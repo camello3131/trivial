@@ -6,20 +6,21 @@
     --colorFive: #8DFA8C;
 }
 
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html{
-    height: 100%;
-}
+
 body {
 	background-image: url(https://www.pogo.com/static/media/src/assets/games/pie_h5/spotlightGame__2u9RC.jpg);
-    height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll !important;
     background-size: cover;
     background-position: left;
+    background-repeat: no-repeat;
+    height: fit-content;
+    min-height: 95vh;
 }
 
 .numero {
@@ -59,17 +60,14 @@ body {
 }
 
 .contenedor{
-    margin-top: 15px;
-    position: fixed;
-    top: 5px;
-    left: 5%;
+    margin-top: 10vh !important;
+    margin: auto auto;
+    min-height: 80vh;
     border: solid 1px #fff;
     border-width: 4px;
     border-style: solid;
     border-image: linear-gradient(to right, var(--colorOne), var(--colorTr)) 1;
-    min-height: 90vh;
-    max-height: fit-content;
-    width: 90%;
+    width: 75%;
     box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
@@ -78,12 +76,11 @@ body {
 .contenedorSuperior{
     display: flex;
     justify-content: space-between;
-    height: 10vh;
-    margin-bottom: 15px;
+    height: 8vh;
     width: 90%;
     margin: 0 auto;
     margin-top:5px ;
-    margin-bottom: 55px;
+    margin-bottom: 5px;
 }
 
 .puntajeAnterior ul{
@@ -92,14 +89,14 @@ body {
     text-align: center;
 }
 .scores-panel{
+    position: absolute;
     width: fit-content;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: translate(0, -500%);
+    transform: translate(0, -610%);
     overflow-y: auto;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    position: fixed;
     left: 20%;
     background-color: #eee;
     z-index: 99999;
@@ -109,7 +106,7 @@ body {
     padding: 2px 5px;
     color: #eee;
     list-style: none;
-    background-color: var(--colorOne);
+    background-color: var(--colorTr);
     border-radius: 1px;
 }
 .scores-panel.is-active{
@@ -246,24 +243,21 @@ color: #fff;
 /*---------------------TABLERO ESTADISTICAS----------------------------*/
 
 .tablero{
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: translate(0, -500%);
-    overflow-y: auto;
+    display: none;
     background-image: url(https://image.api.playstation.com/vulcan/ap/rnd/202203/1607/RHzwa3lxl277LKZOFe7k7WOY.jpg);
     background-size: cover;
     background-position: right;
     height: 94vh;
     width: 100%;
-    z-index: 999;
+    z-index: 19999;
     box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
 }
 .tablero.is-active{
+    display: block;
     position: fixed;
     top: 0;
-    transform: translate(0,0);
-    opacity: 1;
 }
 
 .tableroAll{
@@ -278,7 +272,6 @@ color: #fff;
 }
 
 .tableroNav{
-
     text-align: right;
     width: 100%;
 }
@@ -299,19 +292,11 @@ color: #fff;
 #container-estadisticas h5{
     color: #fff;
 }
-.fooEstadisticas{
-
-}
 
 
-
-.container p{
-    position: absolute;
-    bottom: 0;
-    display: block;
-    margin-top: 50px;
-    color: #eee;
-    font-size: .7em;
+footer{
+    margin-top: 25px;
+    color: #fff;
 }
 
 
@@ -319,14 +304,7 @@ color: #fff;
     z-index: -5;
     opacity: .5;
 }
-@media screen and (max-width: 1030px){
-    .btns{
-        margin-top: 0;
-    }
-    body{
-        background-position: center;
-    }
-}
+
 @media screen and (max-width: 950px) {
     .btns{
         display: block !important;
@@ -341,38 +319,3 @@ color: #fff;
     }
 }
 
-@media screen and (max-width: 393px) {
-    .btns{
-        margin-top: 0;
-    }
-    .btns div{
-        height: fit-content;
-    }
-    .contenedorSuperior{
-        height: fit-content;
-    }
-    .btn-estadisticas{
-        margin-bottom: 1px;
-    }
-    body{
-        background-position: right;
-    }
-    .foo{
-        display: none;
-    }
-    .tablero{
-        height: 97vh;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    body{
-        background-position: right;
-    }
-}
-@media screen and (min-width: 1030px){
-    .contenedor{
-        width: 70%;
-        left: 15%;
-    }
-}

@@ -344,7 +344,8 @@ if(resultadoMaximo && resultadoPromedio){
 } else {
   $maxResult.textContent = "Debes jugar para obtener tus primeros resultados."
   $maxResult.style.margin = "0 auto"
-  $maxResult.style.fontSize = "3rem"
+  $maxResult.style.fontSize = "2rem"
+  $maxResult.style.textShadow = "2px 4px 1px rgba(0,0,0,0.6)"
   $promedio.classList.add("none")
 }
 

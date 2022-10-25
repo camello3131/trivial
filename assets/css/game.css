@@ -60,9 +60,9 @@ body {
 }
 
 .contenedor{
-    margin-top: 10vh !important;
+    margin-top: 5vh !important;
     margin: auto auto;
-    min-height: 80vh;
+    min-height: 90vh;
     border: solid 1px #fff;
     border-width: 4px;
     border-style: solid;
@@ -76,7 +76,7 @@ body {
 .contenedorSuperior{
     display: flex;
     justify-content: space-between;
-    height: 8vh;
+    height: 12vh;
     width: 90%;
     margin: 0 auto;
     margin-top:5px ;
@@ -295,7 +295,7 @@ color: #fff;
 
 
 footer{
-    margin-top: 25px;
+    margin-top: 15px;
     color: #fff;
 }
 
@@ -316,6 +316,12 @@ footer{
     }
     .closeMenu{
         margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        background-position: right;
     }
 }
 
